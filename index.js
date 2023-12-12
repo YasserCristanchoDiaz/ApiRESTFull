@@ -14,4 +14,4 @@ app.use(express.json())
 app.use("/city", require('./routes/city'))
 app.use("/stadiums", require('./routes/stadiums'))
 
-app.listen(app.get('PORT'),()=>console.log(`Sever Listen to Port ${app.get('PORT')}`))
+app.listen( app.get('PORT'),()=>console.log(`Sever Listen to Port ${app.get('PORT')}`))
