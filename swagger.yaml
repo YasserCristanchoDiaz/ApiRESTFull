@@ -229,24 +229,35 @@ definitions:
         type: string
         description: nombre del club que juega en el estadio
         default: nameTeam
+      city:
+        type: ObjectId
+        description: id que referencia la ciudad donde se ecuentra el estadio.
+        items:
+          $ref: '#/definitions/city'
+        default: 102
   city:
     type: object
     required:
-        - department_name
-        - description
+        - id
+        - name
+        - country
         - stadiums
     properties:
-      department_name:
+      id:
+        type: Number
+        description: id de la ciudad
+        default: 102
+      name:
         type: string
-        description: nombre del departamento
-        default: Pruebas
-      description:
+        description: nombre de la ciudad
+        default: London
+      country:
         type: string
-        description: descripción del departamento
-        default: Donde se hacen las pruebas
+        description: nombre del pais donde se loacliza la ciudad
+        default: Inglaterra
       stadiums:
         type: array
-        description: Lista de estadios en el departamento
+        description: Lista de estadios que se encuentran en la ciudad
         items:
           $ref: '#/definitions/stadiums'
         default: []
