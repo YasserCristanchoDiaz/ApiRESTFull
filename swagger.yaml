@@ -47,7 +47,7 @@ paths:
 # [GET] stadiums/id
     get:
       tags:
-      - estadios
+      - Estadios
       summary: Buscar por el id del estadio
       parameters:
       - name: id
@@ -65,7 +65,7 @@ paths:
 # [PUT] stadiums/id
     put:
       tags:
-      - estadios
+      - Estadios
       summary: Actualizar el estadio por el id
       parameters:
       - name: id
@@ -91,7 +91,7 @@ paths:
 # [DELETE] stadiums/id
     delete:
       tags:
-      - estadios
+      - Estadios
       summary: Elimina el estadio por el id
       parameters:
       - name: id
@@ -144,7 +144,7 @@ paths:
   /city/{id}:
     get:
       tags:
-      - ciudades
+      - Ciudades
       summary: Buscar por el id de la ciudad
       parameters:
       - name: id
@@ -162,7 +162,7 @@ paths:
 # [PUT] city/id
     put:
       tags:
-      - ciudades
+      - Ciudades
       summary: Actualizar la informacion de la ciudad por el id
       parameters:
       - name: id
@@ -188,7 +188,7 @@ paths:
 # [DELETE] city/id
     delete:
       tags:
-      - ciudades
+      - Ciudades
       summary: Elimina la ciuadad por el id
       parameters:
       - name: id
