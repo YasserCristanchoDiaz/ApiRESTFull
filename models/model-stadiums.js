@@ -16,6 +16,10 @@ const SchemaStadium = new Schema({
     type : Number,
     required : true
   },
+  team :{
+    type : String,
+    required : true
+  },
 
   city : {
     type : Schema.Types.ObjectId,
