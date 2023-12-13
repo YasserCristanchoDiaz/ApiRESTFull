@@ -29,6 +29,7 @@ module.exports = {
   
         return res.status(200).json({"state":true,data:data})
       } catch (error) {
+        console.log(error)
         return res.status(500).json({"state":false,"error":error})
       }
     } else {
