@@ -3,6 +3,7 @@ const routes = require('express').Router()
 const {
     findAll,
     findById,
+    findByObjectId,
     save,
     update,
     deleteCityById
@@ -11,6 +12,8 @@ const {
 routes.get("/",findAll)
 
 routes.get("/:id",findById)
+
+routes.get("/:id",findByObjectId)
 
 routes.post("/",save)
 

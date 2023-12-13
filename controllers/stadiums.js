@@ -12,7 +12,24 @@ module.exports = {
       return res.status(500).json({ "state": false, "error": error })
     }
   },
-
+  findById: async (req, res) => {
+    const { id } = req.params
+    try {
+      const data = await Stadium.findById(id)
+      return res.status(200).json({ "state": true, "data": data })
+    } catch (error) {
+      return res.status(500).json({ "state": false, "error": error })
+    }
+  },
+  findByObjectId: async (req, res) => {
+    const { id } = req.params
+    try {
+      const data = await Stadium.findById(id);
+      return res.status(200).json({ "state": true, "data": data })
+    } catch (error) {
+      return res.status(500).json({ "state": false, "error": error })
+    }
+  },
   save: async (req, res) => {
     const { id } = req.params;
     const city = await City.findById(id)
