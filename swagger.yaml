@@ -110,7 +110,7 @@ paths:
   /city:
     get:
       tags:
-      - ciudades
+      - Ciudades
       summary: Obtener todas las ciudades
       responses:
         200:
@@ -121,7 +121,7 @@ paths:
 # [POST] city
     post:
       tags:
-      - ciudades
+      - Ciudades
       summary: Agregar nueva ciudad
       parameters:
       - name: body
