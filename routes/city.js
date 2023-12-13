@@ -4,7 +4,8 @@ const {
     findAll,
     findById,
     save,
-    update
+    update,
+    deleteCityById
 } = require ('../controllers/cities')
 
 routes.get("/",findAll)
@@ -14,5 +15,7 @@ routes.get("/:id",findById)
 routes.post("/",save)
 
 routes.put("/:id",update)
+
+routes.delete("/:id", deleteCityById)
 
 module.exports = routes;
