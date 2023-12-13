@@ -13,6 +13,6 @@ routes.get("/:id",findById)
 
 routes.post("/",save)
 
-routes.put("/update/:id",update)
+routes.put("/:id",update)
 
 module.exports = routes;
