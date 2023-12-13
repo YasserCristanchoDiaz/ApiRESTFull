@@ -44,7 +44,7 @@ module.exports = {
         }
     },
     update : async(req,res)=>{
-        const {id} = req.params;
+        const {id} = req.params.id;
         const newData= req.body;
         try {
             const updatedData= await City.findOneAndUpdate({id:id},newData,{new:true});
@@ -52,9 +52,9 @@ module.exports = {
                 return res.status(200).json({ "state": true, "data": updatedData });
             } else {
                 return res.status(404).json({ "state": false, "error": "Documento no encontrado" });
-            }        } catch (error) {
+            }        
+        } catch (error) {
             return res.status(500).json({"state":false,"error":error}) 
         }
-
     }
 }
