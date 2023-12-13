@@ -25,16 +25,16 @@ app.listen( app.get('PORT'),()=>console.log(`Sever Listen to Port ${app.get('POR
 const options = {
     swaggerDefinition: {
         info: {
-            title: 'API de Gestion de Estadios',
+            title: 'API de Gestion de Estadios de futbol',
             version: '1.0.0',
-            description: 'API de gestionar información acerca de los estadios',
+            description: 'API de gestionar información acerca de los estadios de futbol',
         }
     },
     apis: ['swagger.yaml']
 }
 
 const swaggerUiOptions = {
-    cusstomCss: ".scheme-container {display: none}"
+    customCss: ".scheme-container {display: none}"
 }
 
 const specs = swaggerJSDoc(options);

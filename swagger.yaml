@@ -4,8 +4,8 @@ tags:
 - name: Ciudades
   description: Endpoints de Ciudades
 paths:
-# [GET] Estadios
-  /employees:
+# [GET] satdiums
+  /stadiums:
     get:
       tags:
       - Estadios
@@ -16,8 +16,8 @@ paths:
         500:
           description: 'Server Error'
 
-# [POST] Estadios
-  /employees/{id}:
+# [POST] satdiums
+  /stadiums/{id}:
     post:
       tags:
       - Estadios
@@ -25,15 +25,15 @@ paths:
       parameters:
       - name: id
         in: path
-        description: ID del departamento al que se agregará el empleado
+        description: ID de la ciudad al que se agregará el estadio
         required: true
         type: string
       - name: body
         in: body
-        description: Información del empleado
+        description: Información del estadio
         required: true
         schema:
-          $ref: '#/definitions/employees'
+          $ref: '#/definitions/stadiums'
       responses:
         201:
           description: 'Created'
@@ -44,15 +44,15 @@ paths:
         500:
           description: 'Server Error'
 
-# [GET] empleados/id
+# [GET] stadiums/id
     get:
       tags:
-      - empleados
-      summary: Buscar por el id del empleado
+      - estadios
+      summary: Buscar por el id del estadio
       parameters:
       - name: id
         in: path
-        description: Id del empleado
+        description: Id del estadio
         required: true
       responses:
         200:
@@ -62,22 +62,22 @@ paths:
         500:
           description: 'Server Error'
 
-# [PUT] empleados/id
+# [PUT] stadiums/id
     put:
       tags:
-      - empleados
-      summary: Actualizar el empleado por el id
+      - estadios
+      summary: Actualizar el estadio por el id
       parameters:
       - name: id
         in: path
-        description: Id del empleado
+        description: Id del estadio
         required: true
       - name: body
         in: body
-        description: Información del empleado
+        description: Información del estadio
         required: true
         schema:
-          $ref: '#/definitions/employees'
+          $ref: '#/definitions/stadiums'
       responses:
         200:
           description: 'OK'
@@ -88,15 +88,15 @@ paths:
         500:
           description: 'Server Error'
 
-# [DELETE] empleados/id
+# [DELETE] stadiums/id
     delete:
       tags:
-      - empleados
-      summary: Elimina el empleado por el id
+      - estadios
+      summary: Elimina el estadio por el id
       parameters:
       - name: id
         in: path
-        description: Id del empleado
+        description: Id del estadio
         required: true
       responses:
         200:
@@ -106,30 +106,30 @@ paths:
         500:
           description: 'Server Error'
 
-# [GET] departamentos
-  /departments:
+# [GET] city
+  /city:
     get:
       tags:
-      - departamentos
-      summary: Encontrar todos los departamentos
+      - ciudades
+      summary: Obtener todas las ciudades
       responses:
         200:
           description: 'OK'
         500:
           description: 'Server Error'
 
-# [POST] departamentos
+# [POST] city
     post:
       tags:
-      - departamentos
-      summary: Agregar nuevo Departamento
+      - ciudades
+      summary: Agregar nueva ciudad
       parameters:
       - name: body
         in: body
-        description: Información del departamento
+        description: Información de la ciudad
         required: true
         schema:
-          $ref: '#/definitions/departments'
+          $ref: '#/definitions/city'
       responses:
         201:
           description: 'Created'
@@ -140,16 +140,16 @@ paths:
         500:
           description: 'Server Error'
 
-# [GET] departamentos/id
-  /departments/{id}:
+# [GET] city/id
+  /city/{id}:
     get:
       tags:
-      - departamentos
-      summary: Buscar por el id del departamento
+      - ciudades
+      summary: Buscar por el id de la ciudad
       parameters:
       - name: id
         in: path
-        description: Id del departamento
+        description: Id de la ciudad
         required: true
       responses:
         200:
@@ -159,22 +159,22 @@ paths:
         500:
           description: 'Server Error'
 
-# [PUT] departamentos/id
+# [PUT] city/id
     put:
       tags:
-      - departamentos
-      summary: Actualizar el departamento por el id
+      - ciudades
+      summary: Actualizar la informacion de la ciudad por el id
       parameters:
       - name: id
         in: path
-        description: Id del departamento
+        description: Id de la ciudad
         required: true
       - name: body
         in: body
-        description: Información del departamento
+        description: Información de la ciudad
         required: true
         schema:
-          $ref: '#/definitions/departments'
+          $ref: '#/definitions/city'
       responses:
         200:
           description: 'OK'
@@ -185,15 +185,15 @@ paths:
         500:
           description: 'Server Error'
 
-# [DELETE] departamentos/id
+# [DELETE] city/id
     delete:
       tags:
-      - departamentos
-      summary: Elimina el departamento por el id
+      - ciudades
+      summary: Elimina la ciuadad por el id
       parameters:
       - name: id
         in: path
-        description: Id del departamento
+        description: Id de la ciudad
         required: true
       responses:
         200:
@@ -205,31 +205,36 @@ paths:
 
 # definitions
 definitions:
-  employees:
+  stadiums:
     type: object
     required:
+        - id
         - name
-        - lastName
-        - role
+        - capacity
+        - team
     properties:
+      id:
+        type: Number
+        description: id del estadio
+        default: 21490
       name:
         type: string
-        description: nombre del empleado
-        default: John
-      lastName:
+        description: nombre del estadio
+        default: NameStadium
+      capacity:
+        type: Number
+        description: capacidad de espectadores del estadio
+        default: 90000
+      team:
         type: string
-        description: apellido del empleado
-        default: Doe
-      role:
-        type: string
-        description: rol del empleado
-        default: Count
-  departments:
+        description: nombre del club que juega en el estadio
+        default: nameTeam
+  city:
     type: object
     required:
         - department_name
         - description
-        - employees
+        - stadiums
     properties:
       department_name:
         type: string
@@ -239,11 +244,11 @@ definitions:
         type: string
         description: descripción del departamento
         default: Donde se hacen las pruebas
-      employees:
+      stadiums:
         type: array
-        description: Lista de empleados en el departamento
+        description: Lista de estadios en el departamento
         items:
-          $ref: '#/definitions/employees'
+          $ref: '#/definitions/stadiums'
         default: []
 schemes:
  - https
