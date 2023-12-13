@@ -1,5 +1,10 @@
 const mongoose = require('mongoose')
 
+/**
+ * Módulo que gestiona la conexión a la base de datos MongoDB utilizando Mongoose.
+ * @module drivers/connect-db
+ */
+
 //Conexión local
 //const URI = "mongodb://127.0.0.1:27017/cityStadiums"
 
@@ -14,6 +19,13 @@ mongoose.set('strictQuery', false)
     useNewUrlParser:true, useUnifiedTopology:true
 }*/
 
+/**
+ * Conecta a la base de datos MongoDB utilizando la URL proporcionada.
+ * @function
+ * @async
+ * @returns {Promise<void>} - Una promesa que se resuelve una vez que la conexión es exitosa.
+ * @throws {Error} - Error si la conexión a la base de datos falla.
+ */
 mongoose.connect(URI)
     .then(()=>console.log('Connect DB Success'))
     .catch( e => console.log(e))
