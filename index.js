@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 
 const app = express()
 
@@ -10,6 +11,7 @@ app.set('PORT',process.env.PORT || 3000 )
 
 //middlewares
 app.use(express.json())
+app.use(cors())
 
 app.use("/city", require('./routes/city'))
 app.use("/stadiums", require('./routes/stadiums'))
