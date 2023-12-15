@@ -4,7 +4,7 @@ tags:
 - name: Ciudades
   description: Endpoints de Ciudades
 paths:
-# [GET] satdiums
+# [GET] stadiums
   /stadiums:
     get:
       tags:
@@ -16,7 +16,7 @@ paths:
         500:
           description: 'Server Error'
 
-# [POST] satdiums
+# [POST] stadiums
   /stadiums/{id}:
     post:
       tags:
@@ -216,11 +216,11 @@ definitions:
       id:
         type: Number
         description: id del estadio
-        default: 21490
+        default: 1
       name:
         type: string
         description: nombre del estadio
-        default: NameStadium
+        default: Wembley
       capacity:
         type: Number
         description: capacidad de espectadores del estadio
@@ -228,13 +228,13 @@ definitions:
       team:
         type: string
         description: nombre del club que juega en el estadio
-        default: nameTeam
+        default: Selección de Inglaterra
       city:
         type: ObjectId
         description: id que referencia la ciudad donde se ecuentra el estadio.
         items:
           $ref: '#/definitions/city'
-        default: 102
+        default: 656fba46e916cdcb0a577102
   city:
     type: object
     required:
@@ -246,14 +246,14 @@ definitions:
       id:
         type: Number
         description: id de la ciudad
-        default: 102
+        default: 1
       name:
         type: string
         description: nombre de la ciudad
         default: London
       country:
         type: string
-        description: nombre del pais donde se loacliza la ciudad
+        description: nombre del pais donde se localiza la ciudad
         default: Inglaterra
       stadiums:
         type: array
