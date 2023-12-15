@@ -229,12 +229,7 @@ definitions:
         type: string
         description: nombre del club que juega en el estadio
         default: Selección de Inglaterra
-      city:
-        type: ObjectId
-        description: id que referencia la ciudad donde se ecuentra el estadio.
-        items:
-          $ref: '#/definitions/city'
-        default: 656fba46e916cdcb0a577102
+      
   city:
     type: object
     required:
